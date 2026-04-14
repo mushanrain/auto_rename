@@ -55,10 +55,6 @@ jobs:
             goos: windows
             goarch: amd64
             artifact: auto_rename-windows-x64-gui.exe
-          - os: ubuntu-latest
-            goos: linux
-            goarch: amd64
-            artifact: auto_rename-linux-amd64-gui
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -67,12 +63,6 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
-
-      - name: Install Linux GUI dependencies
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgl1-mesa-dev libx11-dev libxcb-shape0-dev libxcb-xfixes0-dev
 
       - name: Build GUI
         env:
