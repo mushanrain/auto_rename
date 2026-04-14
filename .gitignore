@@ -1,0 +1,4 @@
+dist/
+*.exe
+auto_rename
+auto_rename_gui

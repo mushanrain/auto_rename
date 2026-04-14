@@ -1,0 +1,14 @@
+[Unit]
+Description=Auto rename new image files
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/home/openlist/auto_rename
+ExecStart=/home/home/openlist/auto_rename/auto_rename
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target
